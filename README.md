@@ -6,9 +6,7 @@ A professional, feature-rich task management application built with React.js. Or
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Production-success)
 
-## 🚀 Live Demo
-
-[View Live Application](https://smart-task-pro-sigma.vercel.app/) 
+## 🚀 Live Demo - [View Live Application](https://smart-task-pro-sigma.vercel.app/) 
 
 ## ✨ Features
 
