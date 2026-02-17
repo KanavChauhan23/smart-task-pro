@@ -34,6 +34,19 @@ A professional, feature-rich task management application built with React.js. Or
 
 ## 📸 Screenshots
 
+### Login Interface
+![Home Interface](screenshots/login.png)
+
+### Renovation Plan Output
+![Plan Output](screenshots/plan-task.png)
+
+### AI Prompt Generation
+![AI Prompt](screenshots/ai-interface.png)
+
+> **Note:** Add actual screenshots to a `/screenshots` folder in your repo
+
+---
+
 ### Login Page
 Clean and secure authentication interface
 
