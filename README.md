@@ -36,12 +36,15 @@ A professional, feature-rich task management application built with React.js. Or
 
 ### Login Interface
 ![Home Interface](screenshots/login.png)
+*Secure and user-friendly login screen for accessing the task management system*
 
 ### Task Plan Output
 ![Plan Output](screenshots/task.png)
+*Organized task planning dashboard showing schedules, priorities, and progress*
 
 ### Page Interface
 ![AI Prompt](screenshots/interface.png)
+*Clean and responsive main interface for smooth navigation and productivity*
 
 > **Note:** Add actual screenshots to a `/screenshots` folder in your repo
 
