@@ -30,7 +30,7 @@ A professional, feature-rich task management application built with React.js. Or
 
 ## 🚀 Live Demo
 
-[View Live Application](#) *(Add your deployed URL here)*
+[View Live Application](https://smart-task-pro-sigma.vercel.app/) *(Add your deployed URL here)*
 
 ## 📸 Screenshots
 
