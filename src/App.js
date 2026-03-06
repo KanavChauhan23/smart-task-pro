@@ -4,66 +4,33 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import { TaskProvider } from './context/TaskContext';
+import './styles/App.css';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    // Check if user is already logged in
-    const authStatus = localStorage.getItem('isAuthenticated');
-    if (authStatus === 'true') {
-      setIsAuthenticated(true);
-    }
+    if (localStorage.getItem('isAuthenticated') === 'true') setIsAuthenticated(true);
+    // Set initial theme
+    const dm = localStorage.getItem('stp_darkmode');
+    document.documentElement.setAttribute('data-theme', (dm === null || JSON.parse(dm)) ? 'dark' : 'light');
   }, []);
 
-  const handleLogin = () => {
-    setIsAuthenticated(true);
-    localStorage.setItem('isAuthenticated', 'true');
-  };
-
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    localStorage.removeItem('isAuthenticated');
-  };
+  const handleLogin = () => { setIsAuthenticated(true); localStorage.setItem('isAuthenticated', 'true'); };
+  const handleLogout = () => { setIsAuthenticated(false); localStorage.removeItem('isAuthenticated'); };
 
   return (
     <Router>
-      <div className="App">
-        <ToastContainer 
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
+      <TaskProvider>
+        <ToastContainer position="top-right" autoClose={2500} hideProgressBar={false}
+          newestOnTop closeOnClick draggable pauseOnHover theme="colored" />
         <Routes>
-          <Route 
-            path="/login" 
-            element={
-              isAuthenticated ? 
-              <Navigate to="/dashboard" replace /> : 
-              <Login onLogin={handleLogin} />
-            } 
-          />
-          <Route 
-            path="/dashboard" 
-            element={
-              isAuthenticated ? 
-              <Dashboard onLogout={handleLogout} /> : 
-              <Navigate to="/login" replace />
-            } 
-          />
-          <Route 
-            path="*" 
-            element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} 
-          />
+          <Route path="/login" element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Login onLogin={handleLogin} />} />
+          <Route path="/dashboard" element={isAuthenticated ? <Dashboard onLogout={handleLogout} /> : <Navigate to="/login" replace />} />
+          <Route path="*" element={<Navigate to={isAuthenticated ? '/dashboard' : '/login'} replace />} />
         </Routes>
-      </div>
+      </TaskProvider>
     </Router>
   );
 }
