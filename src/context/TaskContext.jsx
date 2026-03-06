@@ -113,7 +113,6 @@ export const TaskProvider = ({ children }) => {
   }, [tasks]);
 
   const getAISuggestion = useCallback(() => {
-    const ft = getFilteredTasks();
     const overdueTasks = tasks.filter(t => isOverdue(t.deadline, t.status));
     const todayDue = tasks.filter(t => isToday(t.deadline) && t.status !== 'Finished');
     const highPriority = tasks.filter(t => t.priority === 'High' && t.status !== 'Finished');
@@ -124,7 +123,7 @@ export const TaskProvider = ({ children }) => {
     if (stats.productivity >= 70) return { type:'good', message:`🔥 Impressive ${stats.productivity}% productivity! You're crushing it today.` };
     if (tasks.length === 0) return { type:'start', message:`👋 Add your first task to get started. Let's build some momentum!` };
     return { type:'good', message:`✨ You're making progress! ${stats.finished} tasks completed so far.` };
-  }, [tasks, getFilteredTasks, getStats]);
+  }, [tasks, getStats]);
 
   const addTask = (task) => {
     setTasks(prev => [{ id: Date.now(), ...task, createdAt: new Date().toISOString() }, ...prev]);
