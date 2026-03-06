@@ -12,7 +12,7 @@ const TaskForm = ({ onClose, editingTask }) => {
     priority: 'Medium', category: 'Personal', deadline: '', tags: ''
   });
   const [errors, setErrors] = useState({});
-  const [step, setStep] = useState(1);
+
 
   useEffect(() => {
     if (editingTask) {
